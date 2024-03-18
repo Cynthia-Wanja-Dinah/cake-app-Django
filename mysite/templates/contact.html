@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Bakery</title>
+    {%load static%}
+    <link rel="stylesheet" href="{% static 'styles.css' %}">
+</head>
+<body>
+    <a href="{% url 'logout' %}" class="logout"><button>logout</button></a>
+    <header>
+        <div>
+           
+            <nav class="nav-links">
+                <div class="hamburger-menu">
+                    <div class="bar"></div>
+                    <div class="bar"></div>
+                    <div class="bar"></div>
+                </div>
+                
+                <div class="nav-menu">
+                    <a href="{% url 'index' %}">Home</a>
+                    <a href="{% url 'orders' %}">Orders</a>
+                    <a href="{% url 'contact' %}">Contacts</a>
+                    <a href="{% url 'order' %}"><button>Order now</button></a>
+                    <a href="{% url 'view_cart' %}"><img src="{%static 'images/cart.png'%}" style="width:50px; height:35px;"></a>
+                    
+        </div>
+        </nav>
+        <script>
+            const hamburgerMenu = document.querySelector(".hamburger-menu");
+            const menu = document.querySelector(".nav-menu");
+        
+            hamburgerMenu.addEventListener("click", () => {
+                menu.classList.toggle("active");
+            });
+        </script>
+    </div>
+    <div class="logo">
+    <img src="{%static 'images\bakeryLogo.PNG'%}">
+    <h1>BeeBakers</h1>
+    </div>
+    </header>
+    <h2 class="contacting">Get in touch with us!</h2>
+    <div class="contacts">
+       
+    <div class="contact">
+        <center>        
+            
+        <h2>Send a message:</h2>
+
+        <form>
+            <input type="text" placeholder="Enter your name"><br><br>
+            <input type="text" placeholder="Subject"><br><br>
+            <textarea>
+    
+            </textarea><br>
+                <button class="send">Send message</button><br>
+            Or <br>
+            <h3>Contact us on: </h3>
+   <p>+254-734589076</p> 
+        </form>
+    </center>
+    </div>
+
+    <div class="social">
+        <h2>Our Socials:</h2>
+        <a href="mailto:beebakers@gmail.com" target="_blank" >
+            <img src="{%static 'images\email.jpeg'%}" alt="beebakers@gmail.com" class="social_img">
+            <p>beebakers@gmail.com</p>
+            </a>
+        
+            <a href="https://m.facebook.com/login/s" target="_self"  >
+                <img src="{%static 'images\fb.jpeg'%}" alt="Facebook" class="social_img"> <p>Facebook</p>
+           
+            </a>
+        
+            <a href="https://www.instagram.com/accounts/login/" target="_self" >
+                <img src="{%static 'images\Instagram.jpeg'%}" alt="Instagram" class="social_img">
+            <p>Instagram</p>
+            </a>
+
+    </div>
+</div>
+
+
+
+
+    <footer class="footer">
+        <p>We are pleased to make memories of sweetness with you.
+        </p>
+    
+    </footer>
+    
+    
+</body>
+</html>

@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Bakery</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'styles.css' %}">
+</head>
+<body>
+    <header>
+        <div>
+           
+            <nav class="nav-links">
+                <div class="hamburger-menu">
+                    <div class="bar"></div>
+                    <div class="bar"></div>
+                    <div class="bar"></div>
+                </div>
+                
+                <div class="nav-menu">
+                    <a href="{% url 'order_list' %}">Orders</a>
+                    <a href="{% url 'admin_login'%}"><button class="login_form_btn" type="submit">Logout</button></a>
+                
+                    
+        </div>
+        </nav>
+        <script>
+            const hamburgerMenu = document.querySelector(".hamburger-menu");
+            const menu = document.querySelector(".nav-menu");
+        
+            hamburgerMenu.addEventListener("click", () => {
+                menu.classList.toggle("active");
+            });
+        </script>
+    </div>
+    <div class="logo">
+        <img src="{%static 'images\bakeryLogo.PNG'%}">
+    <h1>BeeBakers</h1>
+    </div>
+    </header>
+
+
+{% block content %}
+{%load static%}
+<div id ="orders">
+<h2>Order List</h2>
+{% if orders %}
+<table>
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>User</th>
+            <th>Product(s) Ordered</th>
+            <th>Shipping Address</th>
+            <th>Phone Number</th>
+            <th>Created at:</th>
+            <th>Status</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for order in orders %}
+        <tr>
+            <td>{{ order.id }}</td>
+            <td>{{ order.user.username }}</td>
+            <td>
+                <ul>
+                    {% for order_item in order.order_items.all %}
+                    <li>{{ order_item.product.name }} {{ order_item.product.type }} </li>
+                    {% endfor %}
+                </ul>
+            </td>
+            <td>{{ order.shipping_address }}</td>
+            <td>{{ order.phone_number }}</td>
+            <td>{{ order.created_at }}</td>
+            <td> <form method="POST" action="{% url 'update_order_status'  order.id %}" > 
+                {% csrf_token %}
+                <select name="status">
+                    {% for status_value, status_display in order.STATUS_CHOICES %}
+                    {% if status_value == order.status %}
+                    <option value="{{ status_value }}" selected>{{ status_display }}</option>
+                {% else %}
+                    <option value="{{ status_value }}">{{ status_display }}</option>
+                {% endif %}
+                    {% endfor %}
+                </select>                
+                
+                <button type="submit">Update</button>
+            </form></td>
+            {% comment %} <td><a href="{% url 'order_details' order.id %}">View Details</a></td> {% endcomment %}
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% else %}
+<p>No orders found.</p>
+</div>
+{% endif %}
+{% endblock %}

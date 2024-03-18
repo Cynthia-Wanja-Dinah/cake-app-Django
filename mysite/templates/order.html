@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Bakery</title>
+    <meta name="cakes" content="">
+    {%load static%}
+    <link rel="stylesheet" href="{% static 'styles.css' %}">
+</head>
+<body>
+    <a href="{% url 'logout' %}" class="logout"><button>logout</button></a>
+    <header>
+        <div>
+           
+            <nav class="nav-links">
+                <div class="hamburger-menu">
+                    <div class="bar"></div>
+                    <div class="bar"></div>
+                    <div class="bar"></div>
+                </div>
+                
+                <div class="nav-menu">
+                    <a href="{% url 'index' %}">Home</a>
+                    <a href="{% url 'orders' %}">Orders</a>
+                    <a href="{% url 'contact' %}">Contacts</a>
+                    <a href="{% url 'order' %}"><button>Order now</button></a>
+                    <a href="{% url 'view_cart' %}"><img src="{%static 'images/cart.png'%}" style="width:50px; height:35px;"></a>
+                    
+        </div>
+        </nav>
+        <script>
+            const hamburgerMenu = document.querySelector(".hamburger-menu");
+            const menu = document.querySelector(".nav-menu");
+        
+            hamburgerMenu.addEventListener("click", () => {
+                menu.classList.toggle("active");
+            });
+        </script>
+    </div>
+    <div class="logo">
+    <img src="{%static 'images\bakeryLogo.PNG' %}" alt="Bakery Logo">
+    <h1>BeeBakers</h1>
+    </div>
+    </header>
+
+    <div class="search">
+        
+        <input type="search" placeholder="search for products" id="searchInput" oninput="performSearch()">
+         <button type="submit">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                <path d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/>
+            </svg>
+         </button>
+         <script src="function.js"></script> 
+
+    </div>
+
+    <center>
+    <section class="orderpage" id="products">
+        <div class="product">
+            <p>Bread</p>
+            <img src="{%static 'images\bread.webp'%}">
+        <div>
+            <a href="{%url 'bread'%}"><button>View bread</button></a>
+        </div>
+        </div>
+
+        <div class="product">
+            <p>Cakes</p>
+            <img src="{%static 'images\cake.webp'%}">
+        <div>
+            <a  href="{%url 'cakes'%}"><button>View cakes</button></a>
+        </div>
+        </div>
+
+        <div class="product">
+            <p>Swiss Rolls</p>
+            <img src="{%static 'images\strawberrySwiss.jpg'%}">
+        <div>
+            <a href="{%url 'swissrolls'%}"><button>View Swiss Rolls</button></a>
+        </div>
+    </div>
+
+
+        <div class="product">
+            <p>Cupcakes</p>
+            <img src="{%static 'images\1696698339328.jpg'%}">
+        <div>
+            <a href="{%url 'cupcakes'%}"><button>View cupcakes</button></a>
+        </div>
+        </div>
+
+        <div class="product">
+            <p>Donuts</p>
+            <img src="{%static 'images\donuts.jpg'%}">
+        <div>
+            <a href="{%url 'donuts'%}"><button>View donuts</button></a>
+        </div>
+        </div>
+
+       
+        <div class="product">
+            <p>Other Products</p>
+            <img src="{%static 'images\cookies.jpg'%}">
+        <div>
+            <a href="{% url 'others'%}"><button>View</button></a>
+        </div>
+        </div>
+
+
+    </section>
+</center>
+<script>
+    function performSearch(){
+        var query = document.getElementById('searchInput').value.toLowerCase();
+        var products = document.querySelectorAll('#products p');
+    
+        products.forEach(function(product){
+            var productName = product.textContent.toLowerCase();
+            var displayStyle = productName.includes(query)? 'block':'none';
+            product.style.display = displayStyle;
+        });
+    }
+</script>
+
+    <footer class="footer">
+        <p>We are pleased to make memories of sweetness with you.
+        </p>
+    
+    </footer>
+    
+    
+</body>
+</html>

@@ -1,0 +1,523 @@
+@import url('https://fonts.googleapis.com/css?family=Trirong&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Quicksand&display=swap');
+body {
+    font-family: "Trirong", serif;
+}
+
+header {}
+
+.logo {
+    margin-top: 5vh;
+}
+
+.logo img {
+    width: 50px;
+    height: 6vh;
+    float: left;
+    ;
+}
+
+header.logo h1 {
+    float: left;
+    font-size: 30px;
+}
+
+.logo h1 {
+    color: #1c1107;
+}
+
+nav {
+    float: right;
+    enable-background: new;
+    top: 0px;
+}
+
+nav a {
+    text-decoration: none;
+    color: black;
+    padding: 9px;
+    font-weight: bold;
+    font-size: 17px;
+    background-color: bisque;
+}
+
+nav a:active {
+    background-color: burlywood;
+}
+
+nav button {
+    font-weight: bold;
+    background-color: orange;
+    border-color: bisque;
+    border-radius: 10px 5px;
+    padding: 4px;
+}
+
+.nav-menu #cart {
+    width: 50px;
+}
+
+.hamburger-menu {
+    display: none;
+    flex-direction: column;
+    cursor: pointer;
+    float: right;
+}
+
+.bar {
+    width: 30px;
+    height: 3px;
+    background-color: #1c1107;
+    margin: 3px 0;
+}
+
+.logout {
+    float: right;
+    font-weight: bold;
+    background-color: orange;
+    color: #1c1107;
+    border-color: bisque;
+    border-radius: 10px 5px;
+    padding: 4px;
+    margin-top: -40px;
+}
+
+
+/*----HOME PAGE----*/
+
+.welcome {
+    padding-top: 20vh;
+    margin-top: 10vh;
+    height: auto;
+    width: 30%;
+    margin-left: 5%;
+    background-color: bisque;
+    border-radius: 20px;
+    border-color: rgb(41, 24, 8);
+}
+
+.welcome h1 {
+    margin-top: -120px;
+    margin-left: 20px;
+    color: rgb(41, 24, 8);
+    font-size: 20px;
+}
+
+.welcome table {
+    border: 0;
+    margin-top: -120px;
+    padding: 20px;
+}
+
+.welcome th {
+    text-decoration: underline;
+    font-weight: bold;
+}
+
+.days {
+    font-weight: bold;
+}
+
+.welcome_pic img {
+    width: 50%;
+    float: right;
+    margin-top: -52vh;
+    border-radius: 20px;
+    height: 50vh;
+    margin-right: 5%;
+}
+
+footer {}
+
+.footer {
+    display: block;
+    background-color: rgb(41, 24, 8);
+    color: bisque;
+    bottom: 0;
+    position: absolute;
+    position: fixed;
+    width: 100%;
+    text-align: center;
+}
+
+
+/*------ABOUT PAGE-------*/
+
+.content {
+    display: none;
+}
+
+.contents {
+    margin-top: 30vh;
+}
+
+.contents img {
+    width: 50%;
+    height: 50vh;
+    border-radius: 20px;
+}
+
+#about {
+    width: 60%;
+    margin-bottom: 15vh;
+}
+
+
+/*----ODER PAGE-----*/
+
+.search input {
+    padding: 10px;
+    float: right;
+    margin-right: 10%;
+    background-color: rgb(250, 245, 239);
+    border-color: rgb(41, 24, 8);
+    margin-top: 2vh;
+    width: 80%;
+}
+
+.search button {
+    position: absolute;
+    top: 20vh;
+    right: 12%;
+    transform: translateY(-50%);
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+
+.product {
+    align-items: center;
+    justify-content: center;
+    width: 20%;
+    float: left;
+    padding: 30px 30px 10vh 30px;
+}
+
+.product p {
+    margin-bottom: -0px;
+    background-color: bisque;
+    font-family: "Trirong", serif;
+    font-weight: 100px;
+    height: 30px;
+    font-size: 20px;
+}
+
+.product img {
+    width: 25vh;
+    height: 28vh;
+    border-radius: 5px;
+}
+
+.product button {
+    margin-top: 2px;
+    font-weight: bold;
+    background-color: orange;
+    border-color: bisque;
+    border-radius: 10px 5px;
+    padding: 4px;
+}
+
+
+/*----CONTACT PAGE------*/
+
+.contacting {
+    margin-left: 20vh;
+    margin-bottom: -10vh;
+    margin-top: 10vh;
+    color: #1c1107;
+    font-size: 3.5vh;
+}
+
+.contacts {
+    margin-top: 5vh;
+    background-color: bisque;
+    border-radius: 20px;
+    margin: 10vh;
+}
+
+.contact {
+    background-color: rgb(41, 24, 8);
+    width: 49vh;
+    margin-top: 10%;
+    margin-left: 10%;
+    color: bisque;
+}
+
+.contact input {
+    background-color: bisque;
+    border-radius: 2px;
+    width: 55%;
+    align-content: center;
+}
+
+.contact textarea {
+    background-color: bisque;
+    border-radius: 2px;
+    width: 55%;
+    align-content: center;
+}
+
+.send {
+    background-color: bisque;
+    color: rgb(41, 24, 8);
+    padding: 5px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    align-content: center;
+    border-radius: 10px;
+}
+
+.social {
+    margin-right: 5%;
+    width: 40vh;
+    float: right;
+    margin-top: -43vh;
+}
+
+.social h2 {
+    text-decoration: underline;
+}
+
+.social a {
+    color: #1c1107;
+    text-decoration: none;
+}
+
+.social_img {
+    height: 3vh;
+    width: 3vh;
+}
+
+
+/*Orders and Cart*/
+
+.orders {
+    width: 60%;
+    margin-left: 15%;
+    color: #1c1107;
+    padding-left: 20px;
+    padding-bottom: 20px;
+}
+
+.orders th {
+    font-size: 20px;
+    border: 1px;
+    padding: 20px;
+}
+
+.orders td {
+    border: 1px;
+    padding: 0 20px 20px 20px;
+}
+
+.orders td img {
+    border: 1px solid antiquewhite;
+    border-radius: 5px;
+    width: 50px;
+}
+
+.popup {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 60%;
+    max-width: 600px;
+    background-color: bisque;
+    color: #1c1107;
+    padding: 30px;
+    border: 1px solid gray;
+    z-index: 1000;
+}
+
+.popup input {
+    color: #1c1107;
+}
+
+.product_btn {
+    font-weight: bold;
+    background-color: orange;
+    border-color: bisque;
+    border-radius: 10px 5px;
+    padding: 4px;
+}
+
+#orders {
+    width: 90%;
+    margin-left: 5%;
+    color: #1c1107;
+    padding-left: 20px;
+    padding-bottom: 20px;
+}
+
+#orders th {
+    font-size: 20px;
+    border: 1px;
+    padding: 20px;
+}
+
+#orders td {
+    border: 1px;
+    padding: 0 20px 20px 20px;
+}
+
+#orders button {
+    font-weight: bold;
+    background-color: orange;
+    border-color: bisque;
+    border-radius: 10px 5px;
+    padding: 4px;
+}
+
+
+/*------REGISTRATION PAGE-----*/
+
+.form {
+    width: 100vh;
+}
+
+#login {
+    background-image: url("images/background.jpg");
+    background-repeat: no-repeat;
+    background-size: 100% 100vh;
+    background-attachment: scroll;
+}
+
+.loginlogo {
+    margin-bottom: -25px;
+    margin-left: 25%;
+}
+
+.reg_form img {
+    width: 150px;
+    height: 15vh;
+    border-radius: 20px;
+}
+
+#reg_form {
+    background-color: #1c1107;
+    color: bisque;
+    width: 30%;
+    margin-top: 9%;
+    margin-left: 35%;
+    border-radius: 20px;
+    padding: 20px 50px;
+    margin-bottom: 10vh;
+    opacity: 0.8;
+}
+
+#reg_form h2 {
+    margin-left: 30%;
+}
+
+#reg_form a {
+    color: antiquewhite;
+}
+
+#reg_form button {
+    background-color: rgb(247, 107, 6);
+    color: bisque;
+    font-weight: bold;
+    padding: 5px 10px;
+    margin-left: 20%;
+    border-color: wheat;
+    border-radius: 8px 8px 8px 8px;
+}
+
+@media (max-width: 800px) {
+    .nav-links a {
+        display: none;
+    }
+    .hamburger-menu {
+        display: flex;
+        padding: 10px;
+        cursor: pointer;
+    }
+    .nav-menu {
+        display: flex;
+        width: 30vh;
+        flex-direction: column;
+        background-color: bisque;
+        color: #1c1107;
+        position: absolute;
+        top: 60px;
+        right: 0;
+        padding: 20px;
+        z-index: 1;
+        display: none;
+    }
+    .nav-menu a {
+        display: flex;
+        padding: 10px;
+    }
+    .nav-menu.active {
+        display: flex;
+    }
+    /*----HOME PAGE----*/
+    .welcome {
+        width: 60%;
+    }
+    .welcome table {
+        margin-top: -170px;
+        float: left;
+    }
+    .welcome_pic img {
+        width: 80%;
+        float: left;
+        margin-left: 5%;
+        margin-top: 10vh;
+        margin-bottom: 5vh;
+    }
+    /*---SERVICE PAGE----*/
+    .form {
+        width: 70vh;
+        margin-left: -10%;
+    }
+    .tableservices {
+        float: left;
+        margin-left: 5vh;
+        width: 80%;
+        margin-top: 5vh;
+    }
+    .academy {
+        width: 80%;
+        margin-top: 10vh;
+    }
+    /*-----ABOUT PAGE-----*/
+    .contents img {
+        width: 50vh;
+    }
+    #about {
+        margin-bottom: 15vh;
+    }
+    /*----CONTACT PAGE----*/
+    .social a {
+        margin-left: -2vh;
+    }
+}
+
+@media (max-width: 1000px) {
+    .social {
+        width: 100%;
+        float: left;
+        margin-top: 5vh;
+        margin-right: 30vh;
+        margin-bottom: 10vh;
+        background-color: bisque;
+        border-radius: 20px;
+    }
+    .social a {
+        padding: 20px;
+        justify-items: baseline;
+        float: left;
+        height: 20vh;
+    }
+    .contacts {
+        background-color: white;
+    }
+    .contact {
+        margin-top: 20vh;
+        border-radius: 20px;
+    }
+}

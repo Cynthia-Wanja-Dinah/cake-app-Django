@@ -1,0 +1,80 @@
+{%load static%}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Bakery</title>
+    {%load static%}
+    <link rel="stylesheet" href="{% static 'styles.css' %}">
+</head>
+<body>
+    <a href="{% url 'logout' %}" class="logout"><button>logout</button></a>
+    <header>
+        <div>
+           
+            <nav class="nav-links">
+                <div class="hamburger-menu">
+                    <div class="bar"></div>
+                    <div class="bar"></div>
+                    <div class="bar"></div>
+                </div>
+                
+                <div class="nav-menu">
+                    <a href="{% url 'index' %}">Home</a>
+                    <a href="{% url 'orders' %}">Orders</a>
+                    <a href="{% url 'contact' %}">Contacts</a>
+                    <a href="{% url 'order' %}"><button>Order now</button></a>
+                    <a href="{% url 'view_cart' %}"><img src="{%static 'images/cart.png'%}" style="width:50px; height:35px;"></a>
+                    
+        </div>
+        </nav>
+        <script>
+            const hamburgerMenu = document.querySelector(".hamburger-menu");
+            const menu = document.querySelector(".nav-menu");
+        
+            hamburgerMenu.addEventListener("click", () => {
+                menu.classList.toggle("active");
+            });
+        </script>
+    </div>
+    <div class="logo">
+        <img src="{%static 'images\bakeryLogo.PNG'%}">
+    <h1>BeeBakers</h1>
+    </div>
+    </header>
+
+    <div class="search">
+        <input type="search" placeholder="search for products">
+    </div>
+
+    <center>
+        <section>
+            {%load static%}
+                {% for product in products %}
+                <div class="product">
+                        <p>{{ product.name }}</p>
+                        <img src="{{ product.image.url }}" alt="{{ product.name }}">
+                        <div id="product_{{ product.id }}">
+                            <span class="price">Ksh. {{ product.price }}</span>
+                            <form method="post" action="{% url 'add_to_cart' product.id %}"> 
+                                {% csrf_token %}
+                                <button class="product_btn">Add to cart</button>
+                            </form>
+                        </div>
+                    </div>
+                </table>
+                {% endfor %}
+            </div>
+        </section>
+</center>
+
+    <footer class="footer">
+        <p>We are pleased to make memories of sweetness with you.
+        </p>
+    
+    </footer>
+    
+    
+</body>
+</html>

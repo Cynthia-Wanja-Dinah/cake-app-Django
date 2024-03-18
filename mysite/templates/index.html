@@ -1,0 +1,176 @@
+{% block  content %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Bakery</title>
+    {%load static%}
+    <link rel="stylesheet" href="{% static 'styles.css' %}">
+</head>
+<body>
+    <a href="{% url 'logout' %}" class="logout"><button>logout</button></a>
+    <header>
+    
+        <div>
+           
+            <nav class="nav-links">
+                <div class="hamburger-menu">
+                    <div class="bar"></div>
+                    <div class="bar"></div>
+                    <div class="bar"></div>
+                </div>
+                
+                <div class="nav-menu">
+                    <a href="{% url 'index' %}">Home</a>
+                    <a href="{% url 'orders' %}">Orders</a>
+                    <a href="{% url 'contact' %}">Contacts</a>
+                    <a href="{% url 'order' %}"><button>Order now</button></a>
+                    <a href="{% url 'view_cart' %}"><img src="{%static 'images/cart.png'%}" style="width:50px; height:35px;"></a>
+                    
+        </div>
+        </nav>
+        <script>
+            const hamburgerMenu = document.querySelector(".hamburger-menu");
+            const menu = document.querySelector(".nav-menu");
+        
+            hamburgerMenu.addEventListener("click", () => {
+                menu.classList.toggle("active");
+            });
+        </script>
+    </div>
+    <div class="logo">
+    <img src="{% static 'images\bakeryLogo.PNG'%}" alt="Bakery Logo">        
+    <h1>BeeBakers</h1>
+    </div>
+    </header>
+
+    <section>
+        <div>
+        <div class="welcome">
+            <h1>Welcome to Bee bakers. <br>
+             Your home of sweetness.</h1>
+        </div>
+        <div class="welcome">
+            <table>
+                <th>Opening hours</th>
+                <tr>
+                    <td class="days">Mon - Fri:</td>
+                    <td>7am - 8pm</td>
+                </tr>
+                <tr>
+                    <td class="days">Sat:</td>
+                    <td>7am - 6pm</td>
+                </tr>
+                <tr>
+                    <td class="days">Sun:</td>
+                    <td>2pm - 6pm</td>
+                </tr>
+            </table>
+            </div>
+        <div class="welcome_pic">
+            <img src="{%static 'images\1696874636405.jpg'%}">
+
+        </div>
+    </div>
+
+    </section>
+
+
+
+<section>
+    <center >
+        <div class="contents" >
+        <div id="content1"  class="content" >
+            <img src="{%static 'images\arnold.webp'%}">
+            <h4>Arnold Obuya: Head Pastry Chef</h4>
+            <p></p>
+
+
+        </div>
+
+        <div id="content2"  class="content">
+            <img src="{%static 'images\Lorna.webp'%}">
+            <h4>Lorna Serena: CEO</h4>
+            <p></p>
+
+
+        </div>
+
+        <div id="content3"  class="content">
+            <img src="{%static 'images\Mary.jpg'%}">
+            <h4>Mary Andison: Chief Instructor</h4>
+            <p></p>
+
+        </div>
+
+        <div id="content4"  class="content">
+            <img src="{%static 'images\students.jpg'%}">
+            <h4>Our Students at BeeBakers Academy. </h4>
+            <p></p>
+
+        </div>
+        
+    </div>
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            // Hide all content initially
+            document.querySelectorAll('.content').forEach(function(content){
+                content.style.display = 'none';
+            });
+        
+            // Function to show content
+            function showContent(contentId) {
+                console.log(`Displaying ${contentId}`);
+                document.querySelectorAll('.content').forEach(function(content){
+                    content.style.display = 'none';
+                });
+        
+                document.getElementById(contentId).style.display = 'block';
+        
+                // Corrected syntax for recursive call
+                setTimeout(function() {
+                    showContent(
+                        contentId === 'content1' ? 'content2' :
+                        contentId === 'content2' ? 'content3' :
+                        contentId === 'content3' ? 'content4' : 'content1'
+                    );
+                }, 5000); // Change 5000 to the desired time in milliseconds
+            }
+        
+            // Start the process
+            showContent('content1');
+        });
+</script>
+
+
+
+        <div id="about">        
+            <h2>About us:</h2>
+            <p>At Bee bakers, we believe that every day should be a little sweeter. Our journey began with a simple love for baking and a desire to share our passion with the world. Today, we are proud to be your neighborhood bakery, serving up an array of delicious treats made with love and the finest ingredients.
+                From birthdays and weddings to everyday indulgences, we're here to make your day a little brighter.
+            </p>
+    
+            
+            <h2>Our mission.</h2>
+            <p>To  bring joy to your taste buds with our mouthwatering pastries and cakes.</p>
+            <h2>Our vision.</h2>
+            <p>To become the ultimate destination for artisanal baked goods in our community and beyond</p>
+    </div>
+
+</center>
+</section>
+
+
+    <footer class="footer">
+    <p>We are pleased to make memories of sweetness with you.
+    </p>
+
+</footer>
+
+   
+    
+</body>
+</html>
+{% endblock %}

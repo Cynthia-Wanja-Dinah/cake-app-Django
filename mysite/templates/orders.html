@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Bakery</title>
+    {%load static%}
+    <link rel="stylesheet" href="{% static 'styles.css' %}">
+</head>
+<body>
+  <a href="{% url 'logout' %}" class="logout"><button>logout</button></a>
+    <header>
+        <div>
+           
+            <nav class="nav-links">
+                <div class="hamburger-menu">
+                    <div class="bar"></div>
+                    <div class="bar"></div>
+                    <div class="bar"></div>
+                </div>
+                
+                <div class="nav-menu">
+                    <a href="{% url 'index' %}">Home</a>
+                    <a href="{% url 'orders' %}">Orders</a>
+                    <a href="{% url 'contact' %}">Contacts</a>
+                    <a href="{% url 'order' %}"><button>Order now</button></a>
+                    <a href="{% url 'view_cart' %}"><img src="{%static 'images/cart.png'%}" style="width:50px; height:35px;"></a>
+                    
+        </div>
+        </nav>
+        <script>
+            const hamburgerMenu = document.querySelector(".hamburger-menu");
+            const menu = document.querySelector(".nav-menu");
+        
+            hamburgerMenu.addEventListener("click", () => {
+                menu.classList.toggle("active");
+            });
+        </script>
+    </div>
+    <div class="logo">
+        <img src="{%static 'images\bakeryLogo.PNG'%}">
+    <h1>BeeBakers</h1>
+    </div>
+    </header>
+
+
+
+{% if user.is_authenticated %}
+<div class ="orders">
+  <h2>Order Summary</h2>
+  {% for order_summary in order_summaries %}
+    <h2>Order:</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>Product</th>
+          <th>Price</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for item in order_summary.order_items %}
+        <tr>
+          <td><img src="{{ item.product.image.url }}" alt="Product Image: {{ item.product.name }}">
+            {{ item.product.name }} </td>
+          <td>Ksh. {{ item.price }}</td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+    <p>Total Amount: Ksh. {{ order_summary.total_price }}</p>
+    <p>Ordered At: {{ order_summary.order.created_at }}</p>
+    <p>Status: {{ order_summary.order.status }}</p>
+    {% endfor %}
+  </div>
+  {% else %}
+
+    <h2>You are not logged in.</h2>
+    <p>Please <a href="{% url 'login' %}">log in</a> or <a href="{% url 'register' %}">register</a> to access this content.</p>
+{% endif %}
+
+
